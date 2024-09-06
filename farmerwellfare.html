@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Welfare</title>
+    <link rel="stylesheet" href="hackmol33.css">
+</head>
+<body>
+
+    <!-- Notification Bar for Crop Rates -->
+    <div class="notification-bar">
+        <marquee behavior="scroll" direction="left">
+            Current Market Rates: Wheat - ₹1800/quintal, Rice - ₹2500/quintal, Bajra - ₹1600/quintal, Barley - ₹1400/quintal, Maize - ₹1700/quintal, Soybean - ₹4500/quintal, Cotton - ₹5200/quintal
+        </marquee>
+    </div>
+
+    <!-- Hero Image and Main Heading -->
+    <div class="hero">
+        <img src="https://static.mygov.in/static/s3fs-public/styles/large-image/public/mygov_1472628437190667.jpg" alt="Farmer Welfare Image" class="hero-image">
+        <h1>Farmer Welfare</h1>
+    </div>
+
+    <!-- Farmer Loan Section -->
+    <div class="section" id="farmer-loan">
+        <h2>Farmer Loan</h2>
+        <label for="bank">Select Your Bank:</label>
+        <select id="bank">
+            <option value="gramin">Gramin Bank</option>
+            <option value="sbi">SBI</option>
+            <option value="pnb">Punjab National Bank</option>
+        </select>
+        <br>
+        <label for="loan-amount">Enter Loan Amount (₹):</label>
+        <input type="number" id="loan-amount" placeholder="Amount in ₹">
+        <br>
+        <label for="loan-reason">Reason for Loan:</label>
+        <input type="text" id="loan-reason" placeholder="Why do you need this loan?">
+        <br>
+        <button onclick="submitLoan()">Take a Loan</button>
+    </div>
+
+    <!-- Insurance Policy Notification -->
+    <div class="insurance-notification">
+        <marquee behavior="scroll" direction="left">
+            New Insurance Policy Available: Crop Protection Scheme 2024! Get coverage for drought, floods, and more. Contact your nearest office to apply today!
+        </marquee>
+    </div>
+
+    <!-- Farmer Insurance Section -->
+    <div class="section" id="farmer-insurance">
+        <h2>Farmer Insurance</h2>
+        <p>Apply for insurance or claim your existing insurance.</p>
+        <button onclick="applyInsurance()">Apply for Insurance</button>
+        <button onclick="claimInsurance()">Claim Insurance</button>
+    </div>
+
+    <!-- E-Bazaar Section -->
+    <div class="section" id="e-bazaar">
+        <h2>E-Bazaar</h2>
+        <div class="crop-prices">
+            <h3>Current Crop Prices</h3>
+            <ul>
+                <li>Wheat: ₹1800/quintal</li>
+                <li>Rice: ₹2500/quintal</li>
+                <li>Bajra: ₹1600/quintal</li>
+                <li>Barley: ₹1400/quintal</li>
+                <li>Maize: ₹1700/quintal</li>
+                <li>Soybean: ₹4500/quintal</li>
+                <li>Cotton: ₹5200/quintal</li>
+            </ul>
+        </div>
+        <label for="crop-type">Which Crop do you want to sell?</label>
+        <input type="text" id="crop-type" placeholder="Enter crop type">
+        <br>
+        <label for="crop-amount">Amount of Crop (in quintals):</label>
+        <input type="number" id="crop-amount" placeholder="Enter amount">
+        <br>
+        <button onclick="sellCrop()">Sell Crop to City Market</button>
+    </div>
+
+    <!-- Village News Section -->
+    <div class="section" id="village-news">
+        <h2>Village News</h2>
+        <div class="news-board">
+            <p>Upcoming events: Village meeting on development projects, Government scheme launch, Crop insurance scheme update.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Farmer Welfare Portal</p>
+    </footer>
+
+    <!-- Include JS -->
+    <script src="hackmol33.js"></script>
+
+</body>
+</html>

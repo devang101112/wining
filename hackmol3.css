@@ -1,0 +1,883 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    white-space: nowrap; /* Prevents items from wrapping to the next line */
+}
+
+.navbar li {
+    margin: 5px;
+    position: relative;
+}
+
+.navbar li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: background 0.3s ease;
+}
+
+.navbar li a img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.navbar li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.navbar li a span {
+    margin-top: 5px;
+}
+
+.navbar li a::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.navbar li a:hover::after {
+    width: 100%;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    user-select: none;
+}
+
+.left-btn {
+    left: 20px; /* Increase the distance from the left edge */
+}
+
+.right-btn {
+    right: 20px; /* Increase the distance from the right edge */
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.notification {
+    background-color: #ffeb3b;
+    padding: 10px;
+    text-align: center;
+}
+
+.sarpanch {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.sarpanch img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.village-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Arrange photos in 3 columns */
+    gap: 20px; /* Spacing between photos */
+    padding: 20px;
+}
+
+.photo-card {
+    width: 100%;
+    perspective: 1000px; /* Give 3D perspective to the flip effect */
+}
+
+.photo-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Make the card square */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.photo-card:hover .photo-inner {
+    transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+.photo-front, .photo-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back side when not flipped */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.photo-front {
+    background-color: #fff;
+}
+
+.photo-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the photo covers the entire div */
+}
+
+.photo-back {
+    background-color: #0072ff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: rotateY(180deg); /* Flip the back content */
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .village-photos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+
+    .photo-card {
+        margin-bottom: 20px;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media a {
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.image-section {
+    width: 100%;
+    height: 25vh;
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+}
+
+.image-section img {
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 200px; /* Adjust this value to move the div down */
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+form {
+    width: 100%;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .village-photos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sarpanch {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sarpanch img {
+        margin-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-container {
+        height: auto;
+    }
+
+    .form-container {
+        margin-top: 50px;
+        width: 90%;
+    }
+
+    .image-section {
+        height: 15vh;
+    }
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.image-section {
+    width: 100%;
+    height: 25vh; /* 1/4 of the page height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-section img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.announcements-container, .services-container {
+    width: 80%;
+    
+    max-width: 1000px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: hidden;
+    perspective: 1000px;
+
+    /* Ensure the background image covers the entire container */
+    background-image: url('https://www.your-image-url.com/your-image.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Makes sure the image covers the entire container */
+    background-position: center; /* Centers the image within the container */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+
+h2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+.announcement-content, .services-content {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.announcement-scroll, .services-scroll {
+    animation: scroll 10s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.announcement-scroll p, .services-scroll p {
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
+}
+
+.announcements-container:hover .announcement-scroll,
+.services-container:hover .services-scroll {
+    animation-play-state: paused;
+}
+
+.announcements-container:hover {
+    transform: rotateY(-10deg);
+}
+
+.services-container:hover {
+    transform: rotateY(10deg);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.page-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-image {
+    width: 100%;
+    height: 25vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.header-image img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.intro-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.intro-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.intro-container p {
+    font-size: 1.2em;
+}
+
+.development-section {
+    margin: 40px 0;
+}
+
+.development-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.development-item {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.development-item:hover {
+    transform: translateY(-5px);
+}
+
+.development-image {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.development-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.development-details {
+    flex: 2;
+    padding: 20px;
+}
+
+.development-details h3 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.development-details p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.beneficiaries {
+    margin-top: 20px;
+}
+
+.beneficiaries h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.beneficiary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.beneficiary img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.beneficiary p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.page-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-image {
+    width: 100%;
+    height: 25vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.header-image img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.heading-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.heading-container h1 {
+    font-size: 2.5em;
+    color: #4CAF50;
+}
+
+.village-info {
+    margin: 20px 0;
+}
+
+.village-info h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.village-info p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.officers-section {
+    margin-top: 40px;
+}
+
+.officers-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.officer-card {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    max-width: 350px;
+    margin: 10px auto;
+}
+
+.officer-card:hover {
+    transform: translateY(-5px);
+}
+
+.officer-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.officer-details {
+    padding: 15px;
+}
+
+.officer-details h3 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.officer-details p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.village-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.village-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+section {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+.details {
+    margin-top: 10px;
+}
+
+.details h3 {
+    margin-top: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+ul li img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+ul li .hover-details {
+    display: none;
+    position: absolute;
+    left: 80px;
+    top: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+ul li:hover img {
+    transform: scale(1.2);
+}
+
+ul li:hover .hover-details {
+    display: block;
+}
+
+ul li span {
+    font-weight: bold;
+}
+
+/* Adjust the widths for smaller screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .village-photos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sarpanch {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sarpanch img {
+        margin-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-container {
+        height: auto;
+    }
+
+    .form-container {
+        margin-top: 50px;
+        width: 90%;
+    }
+
+    .image-section {
+        height: 15vh;
+    }
+
+    /* Adjust the widths for smaller screens */
+    .development-item {
+        flex-direction: column;
+    }
+
+    .development-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .development-details {
+        padding: 10px;
+    }
+
+    .officer-card {
+        flex-direction: column;
+    }
+
+    .officer-card img {
+        width: 100%;
+        height: 200px;
+    }
+
+    ul li .hover-details {
+        left: 70px;
+    }
+}
+
+/* Adjust the font sizes for smaller screens */
+@media (max-width: 480px) {
+    .village-title {
+        font-size: 32px;
+    }
+
+    .intro-container h1 {
+        font-size: 2em;
+    }
+
+    .development-section h2,
+    .officers-section h2 {
+        font-size: 1.8em;
+    }
+
+    .development-details h3 {
+        font-size: 1.5em;
+    }
+
+    .beneficiaries h4 {
+        font-size: 1.3em;
+    }
+
+    .beneficiary p {
+        font-size: 1em;
+    }
+
+    .officer-details h3 {
+        font-size: 1.3em;
+    }
+}
